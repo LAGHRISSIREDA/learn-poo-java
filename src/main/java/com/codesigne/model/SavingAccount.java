@@ -8,6 +8,16 @@ public class SavingAccount extends BankAccount{
         super();
     }
 
+    @Override
+    public String getType() {
+        return "SAVING_ACCOUNT";
+    }
+
+    public SavingAccount(String currency,double amount,double interestRate){
+        super(currency,amount);
+        this.interestRate = interestRate;
+    }
+
     public double getInterestRate() {
         return interestRate;
     }
