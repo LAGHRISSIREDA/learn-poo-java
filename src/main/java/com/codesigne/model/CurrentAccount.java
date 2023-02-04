@@ -6,11 +6,22 @@ public class CurrentAccount extends BankAccount{
 
     public CurrentAccount(){
         super();
+
+    }
+
+    public CurrentAccount(String currency,double amount,double overDraft){
+        super(currency,amount);
+        this.overDraft = overDraft;
     }
 
     @Override
     public String toString() {
         return super.toString()+" "+ this.overDraft;
+    }
+
+    @Override
+    public String getType() {
+        return "CURRENT_ACCOUNT";
     }
 
     public double getOverDraft() {
