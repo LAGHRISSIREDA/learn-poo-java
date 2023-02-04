@@ -3,7 +3,7 @@ package com.codesigne.model;
 import java.util.Objects;
 import java.util.UUID;
 
-public class BankAccount {
+public abstract class BankAccount {
     private String accoundId;
     private double balance;
     private String currency;
@@ -14,6 +14,13 @@ public class BankAccount {
         this.balance = 345;
         this.currency = "MAD";
         this.status = AccoutStatus.CREATED;
+    }
+
+    public BankAccount(String currency , double amount){
+        this.accoundId = UUID.randomUUID().toString();
+        this.status = AccoutStatus.CREATED;
+        this.currency = currency;
+        this.balance = amount;
     }
 
     //getters and setters
@@ -65,7 +72,9 @@ public class BankAccount {
                 '}';
     }
 
+    //gettype abstract function
 
+    public abstract String getType();
     @Override
     public int hashCode() {
         return Objects.hash(accoundId, balance, currency, status);
